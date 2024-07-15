@@ -46,6 +46,30 @@
 
 ## Моё искупление
 
+### Скрины от запуска фаззеров 
+
+<img src = "Pictures/vers1.jpg" width="500" height="300">
+
+<img src = "Pictures/vers2.jpg" width="500" height="300">
+
+### Подключение мутации к фаззеру
+Для C/C++ мутаторов исходный код должен быть скомпилирован как динамическая библиотека:
+
+```bash
+gcc -shared -Wall -O3 example.c -o example.so
+```
+
+Запуск:
+
+```bash
+export AFL_CUSTOM_MUTATOR_LIBRARY="/full/path/to/example.so" 
+```
+
+```bash
+export AFL_CUSTOM_MUTATOR_ONLY=1 afl-fuzz -i input_dir -o output_dir -- target_program @@
+```
+
+
 ### Про мутации
 Чтобы увеличить покрытие при фаззинге моих таргетов, я решила написать кастомную мутацию (целых 2 шт!!!) для *.mp3.
 Целями моего фаззинга являются функции  `mp3dec_decode_frame()` и `mp3dec_ex_read()`. Мутация для `mp3dec_decode_frame()` была неэффективна для `mp3dec_ex_read()` и наоборот. Поэтому было принято решение написать и использовать 2 мутации раздельно.
@@ -139,7 +163,6 @@ size_t afl_custom_fuzz(my_mutator_t* data, uint8_t* buf, size_t buf_size, uint8_
 <img src = "Pictures/default_custom_read_2.jpg" width="800" height="250">
 
 Анализ графиков: выводы по данным графикам можно сделать аналагичное первым: покрытие custom only растет, а мутация вносит свой вклад в увеличение покрытия. 
-
 
 ## Еще слова
 
