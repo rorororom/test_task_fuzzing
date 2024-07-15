@@ -56,7 +56,7 @@
 
 Цикл проходит по каждому байту в буфере mutated_out. Для каждого байта с вероятностью MUTATION_RATE (50%) происходит мутация. Если случайное число, сгенерированное функцией rand(), меньше MUTATION_RATE, байт заменяется на случайное значение от 0 до 255.
 
-```С
+```c
 size_t afl_custom_fuzz(my_mutator_t* data, uint8_t* buf, size_t buf_size, uint8_t** out_buf, uint8_t* add_buf, size_t add_buf_size, size_t max_size) {
     size_t mutated_size = buf_size <= max_size ? buf_size : max_size;
     memcpy(data->mutated_out, buf, mutated_size);
