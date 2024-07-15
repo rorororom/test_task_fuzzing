@@ -86,19 +86,6 @@ size_t afl_custom_fuzz(my_mutator_t* data, uint8_t* buf, size_t buf_size, uint8_
 
 <img src = "Pictures/default_custom.jpg" width="800" height="250">
 
-
-
-Без мутации:
-
-<img src = "Pictures/default_2.jpg" width="800" height="250">
-
-Только с кастомной мутацией:
-
-<img src = "Pictures/custom_only_2.jpg" width="800" height="250">
-
-Без мутации:
-<img src = "Pictures/default_custom_2.jpg" width="800" height="250">
-
 Анализ графиков: по графику custom only мутации видно, что со временем покрытие растет, что является хорошим знаком. Мы можем наблюдать, что использование кастомной мутации вместе с дефолтными выигрывает по сравнению с дефолтным, что наглядно демонстрирует эффективность моей мутации.
 
 
@@ -136,6 +123,31 @@ size_t afl_custom_fuzz(my_mutator_t* data, uint8_t* buf, size_t buf_size, uint8_
             }
         }
 ```
+
+
+Без мутации:
+
+<img src = "Pictures/default_read.jpg" width="800" height="250">
+
+Только с кастомной мутацией:
+
+<img src = "Pictures/custom_only_read.jpg" width="800" height="250">
+
+Кастомная + дефолтная мутации:
+
+<img src = "Pictures/default_custom_read.jpg" width="800" height="250">
+
+Без мутации:
+
+<img src = "Pictures/default_read_2.jpg" width="800" height="250">
+
+Только с кастомной мутацией:
+
+<img src = "Pictures/custom_only_read_2.jpg" width="800" height="250">
+
+Кастомная + дефолтная мутации:
+
+<img src = "Pictures/default_custom_read_2.jpg" width="800" height="250">
 
 Анализ графиков: выводы по данным графикам можно сделать аналагичное первым: покрытие custom only растет, а мутация вносит свой вклад в увеличение покрытия. 
 
